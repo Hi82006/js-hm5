@@ -1,23 +1,23 @@
 // 1) Створити функцію конструктор яка створює обєкт юзер інфо в функції повиний бути метод виводу інформації про юзера.
 // Метод повинен бути винесений в прототип.Створити метод на прототайп для оновлення ключів обєкту. Створити функцію сорт яка посортує массив з створеними обєктами юзер по віку ( в порядку зростання і порядку зниження)
 
-function userConstructor(name, age){
+function UserConstructor(name, age){
     this.name = name;
     this.age = age;
 }
 
-userConstructor.prototype.userInfo = function(){
+UserConstructor.prototype.userInfo = function(){
     return `name ${this.name} age: ${this.age}`
 } 
 
-userConstructor.prototype.userupdate = function(name, age){
+UserConstructor.prototype.userupdate = function(name, age){
     this.name = prompt('input user name');
     this.age = parseInt(prompt(' Input user age'));
 }
 
-const user1 = new userConstructor('Gleb', 24); 
-const user2 = new userConstructor('Hleb', 34);
-const user3 = new userConstructor('Lelik', 32);
+const user1 = new UserConstructor('Gleb', 24); 
+const user2 = new UserConstructor('Hleb', 34);
+const user3 = new UserConstructor('Lelik', 32);
 
 
 const userArr = [user1, user2, user3];
@@ -28,18 +28,21 @@ user1.userupdate();
 let user1Info = user1.userInfo();
 console.log(user1Info);
 
-function sortByAge(arr,bool){
-    const sortArr = arr.slice()
-        if(bool == true){
-            arr.sort((a,b) => a.age > b.age ? 1 : -1);
-        }
-        else{
-            arr.sort((a,b) => a.age < b.age ? 1 : -1);
-        }
-    return sortArr;
-}
-console.log(sortByAge(userArr,true));
-console.log(sortByAge(userArr,false));
+// function sortByAge(arr,bool){
+//     const sortArr = arr.slice()
+//         if(bool == true){
+//             arr.sort((a,b) => a.age > b.age ? 1 : -1);
+//         }
+//         else{
+//             arr.sort((a,b) => a.age < b.age ? 1 : -1);
+//         }
+//     return sortArr;
+// }
+function sortByAge(arr, bool) {
+    return [...arr].sort((a, b) => (bool ? a.age - b.age : b.age - a.age));
+  }
+console.log(sortByAge(userArr, true));
+console.log(sortByAge(userArr));
 
 // 2) Створити функцію конструктор створення (прямокутника, квадрата ) в прототип винести методи обчислення Площі, переметра, та визначити діагональ
 
