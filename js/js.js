@@ -18,17 +18,19 @@ userConstructor.prototype.userupdate = function(name, age){
 const user1 = new userConstructor('Gleb', 24); 
 const user2 = new userConstructor('Hleb', 34);
 const user3 = new userConstructor('Lelik', 32);
-user1.userupdate();
+
 
 const userArr = [user1, user2, user3];
 console.log(userArr);
+
+user1.userupdate();
 
 let user1Info = user1.userInfo();
 console.log(user1Info);
 
 function sortByAge(arr,bool){
-    const sortArr = arr
-        if(bool){
+    const sortArr = arr.slice()
+        if(bool == true){
             arr.sort((a,b) => a.age > b.age ? 1 : -1);
         }
         else{
@@ -37,6 +39,7 @@ function sortByAge(arr,bool){
     return sortArr;
 }
 console.log(sortByAge(userArr,true));
+console.log(sortByAge(userArr,false));
 
 // 2) Створити функцію конструктор створення (прямокутника, квадрата ) в прототип винести методи обчислення Площі, переметра, та визначити діагональ
 
